@@ -1,11 +1,9 @@
 // import dependencies
 import React from 'react';
 import { useLocation } from 'react-router';
-import { useNavigate } from "react-router-dom";
 
-const Error = (props) => {
-// `navigate` and `location` methods required to get state values passed through `navigate` method in the redirecting page
-  const navigate = useNavigate();
+const UnhandledError = (props) => {
+// `location` methods required to get state values passed through `navigate` method in the redirecting page
   const location = useLocation();
   const error = location.state.errors || props.error;
   console.log(error);
@@ -18,4 +16,4 @@ const Error = (props) => {
   )
 }
 
-export default Error;
+export default UnhandledError;

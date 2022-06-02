@@ -14,7 +14,7 @@ import CreateCourse from './components/CreateCourse';
 import CourseDetail from './components/CourseDetail';
 import UpdateCourse from './components/UpdateCourse';
 import NotFound from './components/NotFound';
-import Error from './components/Error';
+import UnhandledError from './components/UnhandledError';
 import Forbidden from './components/Forbidden';
 import reportWebVitals from './reportWebVitals';
 //  `withContext` method from `Context` to wrap the component in Consumer tags
@@ -34,11 +34,11 @@ root.render(
     <Router>
       <Routes>
         <Route path="/" element={ <Navigate replace to="courses" /> } />
-        // Nested Routes
+        {/* Nested Routes */}
         <Route path="/" element={ <AppWithContext /> } >
           <Route path="courses" element={<CoursesWithContext /> } />
           <Route path="courses/:id" element={<CourseDetailWithContext /> } />
-          //  Protected Routes
+          {/* Protected Routes */}
           <Route element={<PrivateRouteWithContext /> } >
             <Route path="courses/create" element={<CreateCourseWithContext /> } />
             <Route path="courses/:id/update" element={<UpdateCourseWithContext /> } />
@@ -46,7 +46,7 @@ root.render(
           <Route path="signup" element={<UserSignUpWithContext /> } />
           <Route path="signin" element={<UserSignInWithContext /> } />
           <Route path="signout" element={<UserSignOutWithContext /> } />
-          <Route path="error" element={<Error /> } />
+          <Route path="error" element={<UnhandledError /> } />
           <Route path="notfound" element={<NotFound /> } />
           <Route path="/forbidden" element={<Forbidden /> } />
           <Route path="*" element={<NotFound /> } />

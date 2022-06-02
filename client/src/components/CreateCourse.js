@@ -1,6 +1,5 @@
 //  import dependencies
 import React, { useState } from 'react';
-import { useLocation } from 'react-router';
 import { useNavigate } from "react-router-dom";
 import Form from "./Form";
 
@@ -9,9 +8,7 @@ import Form from "./Form";
 const CreateCourse = (props) => {
 
   let courseTitle, courseDescription, estimatedTime, materialsNeeded;
-  // navigate and location methods required to redirect to another page with state
   const navigate = useNavigate();
-  const location = useLocation();
   let [ errors, setErrors ] = useState([]);
   const { context } = props;
 
@@ -25,7 +22,7 @@ const CreateCourse = (props) => {
       description: `${courseDescription.value}`,
       estimatedTime: `${estimatedTime.value}`,
       materialsNeeded: `${materialsNeeded.value}`,
-      User: `${context.authenticatedUser.id}`
+      userId: `${context.authenticatedUser.id}`
     }
 
     context.data.createCourse(course, credentials)

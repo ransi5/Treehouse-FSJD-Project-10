@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useLocation } from 'react-router';
-import { Navigate, Outlet, useNavigate} from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 
 // `PrivateRoute` functional component wraps the potected routes dependant on user authentication
 // if user not authenticated it redirect the user to `sigin` route
@@ -9,7 +9,6 @@ const PrivateRoute = (props) => {
   const { context } = props;
   const isAuthenticated = context.authenticatedUser;
   const location = useLocation();
-  const navigate = useNavigate();
 
   return (
     <>

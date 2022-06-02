@@ -1,14 +1,12 @@
 //  import dependencies
 import React, { useState } from 'react';
-import { useLocation } from 'react-router';
 import { Link, useNavigate } from "react-router-dom";
 import Form from "./Form";
 
 // `UserSignUp` component renders sign up form and processes form submission
 const UserSignUp = (props) => {
-  // navigate and location methods required to redirect to another page with state
-    const navigate = useNavigate();
-    const location = useLocation();
+
+  const navigate = useNavigate();
   let [ errors, setErrors ] = useState([]);
 
   let firstName, lastName, emailAddress, password;

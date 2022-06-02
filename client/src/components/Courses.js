@@ -1,14 +1,12 @@
 //  import dependencies
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import { useLocation } from 'react-router';
 
 //  `Courses` functional component
 const Courses = (props) => {
 
   let [ courses, setCourses ] = useState([]);
   const navigate = useNavigate();
-  const location = useLocation();
 
   // `useEffect` hook call the `getCourses` to make api request and render all courses
   useEffect(() => {
@@ -19,7 +17,7 @@ const Courses = (props) => {
         setCourses(data.courses);
       })
       .catch( error => navigate('/error', { state: { errors: error}}))
-  }, [props])
+  }, [props, navigate])
 
   return (
     <div className="wrap main--grid">

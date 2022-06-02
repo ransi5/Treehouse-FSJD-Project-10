@@ -13,7 +13,7 @@ export class Provider extends Component {
     this.data = new Data();
     this.state = {
       // condition for `authenticatedUser` persists user log in state till user signs out or for 1 day
-      authenticatedUser: this.cookie ? Cookies.get('user') : null
+      authenticatedUser: this.cookie ? JSON.parse(this.cookie) : null
     }
   }
 
