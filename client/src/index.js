@@ -48,7 +48,7 @@ root.render(
           <Route path="signout" element={<UserSignOutWithContext /> } />
           <Route path="error" element={<UnhandledError /> } />
           <Route path="notfound" element={<NotFound /> } />
-          <Route path="/forbidden" element={<Forbidden /> } />
+          <Route path="forbidden" element={<Forbidden /> } />
           <Route path="*" element={<NotFound /> } />
         </Route>
       </Routes>

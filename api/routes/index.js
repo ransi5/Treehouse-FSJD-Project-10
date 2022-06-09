@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
-const bcrypt = require('bcrypt');
 // authentication middleware imported
 var authenticate = require('../middleware/auth-user');
 
@@ -32,22 +31,20 @@ router.get('/api/users', authenticate.authenticateUser, async (req, res, next) =
 
 /*
 post `/api/users` add new user to `User` mdoel
-1   password hashed with bcrypt
-2   conditional to display error messages
+1   conditional to display error messages
 */
 router.post('/api/users', async (req, res, next) => {
   try {
-    const hashedPassword = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync());  //1
     let insert = await models.Users.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       emailAddress: req.body.emailAddress,
-      password: hashedPassword
+      password: req.body.password
     });
     res.status('201').location('/').end();
   } catch (e) {
     let errors = []
-    if (e.name == 'SequelizeUniqueConstraintError') {     //2
+    if (e.name == 'SequelizeUniqueConstraintError') {     //1
       e.errors.map(err => {
         errors.push(err.message)
       })

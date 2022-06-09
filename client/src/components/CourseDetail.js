@@ -87,7 +87,7 @@ const CourseDetail = (props) => {
               <h3 className="course--detail--title">Course</h3>
               <h4 className="course--name">{course.title}</h4>
               <p>{user.firstName} {user.lastName}</p>
-              <ReactMarkdown children ={course.description} />
+              <ReactMarkdown>{course.description}</ReactMarkdown>
             </div>
             <div>
               <h3 className="course--detail--title">Estimated Time</h3>
@@ -95,17 +95,7 @@ const CourseDetail = (props) => {
 
               <h3 className="course--detail--title">Materials Needed</h3>
 
-                <ReactMarkdown
-                  children ={course.materialsNeeded}
-                  components={
-                    { ul ({node, className, style, children, ...props}) {
-                        return (<ul className="course--detail--list" style={{listStyleType: 'none', marginLeft: '0px'}} {...props}>
-                            {children}
-                           </ul>)
-                      }
-                    }
-                  }
-                />
+              <ReactMarkdown className="course--detail--list">{course.materialsNeeded}</ReactMarkdown>
 
             </div>
           </div>
