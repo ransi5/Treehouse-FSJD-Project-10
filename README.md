@@ -29,6 +29,11 @@ password: *joepassword*
 7.  Run ```npm install``` command in the terminal to install all dependencies
 8.  Run ```npm start``` command in the terminal to run the app
 
+#### Run the app
+
+9.  Open 'Google' or 'Edge' browser and type ```localhost:3000``` in the address bar.
+10.  If you see a list of courses, kudos, you've done it.
+
 #### Build using
 
 * React
